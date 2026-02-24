@@ -1,47 +1,68 @@
-# Svelte + TS + Vite
+# Credit Calculator
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+A simple credit / loan repayment calculator built as part of the **DevOps Ninja Contest**.
 
-## Recommended IDE Setup
+This project demonstrates how to build, containerize, and deploy a small application using modern DevOps practices while maintaining clean and minimal application logic.
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+---
 
-## Need an official Svelte framework?
+## Overview
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+The Credit Calculator allows users to:
 
-## Technical considerations
+- Calculate loan installment amounts
+- Estimate total repayment cost
+- Adjust parameters such as loan amount, interest rate, and repayment period
+- Quickly simulate financing scenarios
 
-**Why use this over SvelteKit?**
+The main goal of the project was not only to implement financial calculation logic, but also to showcase:
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+- CI/CD pipeline configuration
+- Containerization
+- Deployment automation
+- Clean project structure
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+## Features
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+- Loan repayment calculation
+- Interest rate handling
+- Installment breakdown in pdf file
+- Simple and intuitive interface
+- Container-ready setup
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+## DevOps Context
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+This project was created as part of the **DevOps Ninja Contest**, focusing on:
 
-**Why include `.vscode/extensions.json`?**
+- Infrastructure as Code principles
+- Docker-based environments
+- Automated builds
+- Continuous Integration workflows
+- Deployment best practices
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+It serves as a practical example of combining application development with DevOps automation.
 
-**Why enable `allowJs` in the TS template?**
+## Getting Started
 
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
+Clone the repository:
 
-**Why is HMR not preserving my local component state?**
+```bash
+git clone https://github.com/arosicki/credit-calculator.git
+cd credit-calculator
+```
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
+Follow the instructions in the repository to:
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+- Install dependencies
+- Run locally
+- Build Docker image (if applicable)
+- Deploy using provided configuration
 
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+## Docker
+
+If the project includes a Dockerfile:
+
+```bash
+docker build -t credit-calculator .
+docker run -p 3000:3000 credit-calculator
 ```
